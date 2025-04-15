@@ -1,24 +1,40 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Test from './Test';
+
 
 function App() {
+  const username="punjabi boyz";
+  let [counter,setUpdate] = useState(10);
+  // let  counter=15;
+  let addValue= () => {
+    console.log("Clicked",counter);
+    counter=counter+1;
+    if(counter > 20)
+    {
+      counter=0;
+    }
+    setUpdate(counter);
+  }
+  let subValue= () => {
+    console.log("Clicked",counter);
+    counter=counter-1;
+    if(counter <0)
+    {
+      counter=0;
+    }
+    setUpdate(counter);
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Test />
+      <h1>Jatt {username} React project </h1>
+      <h2>Sidharth kashyap </h2>
+      <h3>Counter {counter}</h3>
+      <button onClick={addValue}>Add Counter </button>
+      <button onClick={subValue}>Minus Counter </button>
     </div>
+    
   );
 }
 
